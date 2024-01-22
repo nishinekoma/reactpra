@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Task({ task : {id, title, state}, onArchiveTask, onPinTask }) {
     return (//jsxを利用し内部にhtmlを描く　Drow html inside using jsx.
@@ -44,3 +45,19 @@ export default function Task({ task : {id, title, state}, onArchiveTask, onPinTa
         </div>
     );
 }
+
+Task.PropTypes = {//タスクコンポーネントが誤用された場合、開発中の警告が表示される。
+    /** Composition(構成) of the task */
+    task: PropTypes.shape({/**shape 形状 */
+        /** Id of the task */
+        id: PropTypes.string.isRequired,
+        /**Title of the task */
+        title: PropTypes.string.isRequired,
+        /**Current state of the task */
+        state: PropTypes.string.isRequired,
+    }),
+    /** Event to change the task to archived */
+    onArchiveTask: PropTypes.func,
+    /** Event to change the task to pinned イベント変更を固定に*/
+    onPinTask: PropTypes.func,
+};
