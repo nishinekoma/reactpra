@@ -2,24 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function Task({ task : {id, title, state}, onArchiveTask, onPinTask }) {
-    return (//jsxを利用し内部にhtmlを描く　Drow html inside using jsx.
-        <div className={'list-item ${state}'}>
+    return (//jsxを利用し内部にhtmlを描く　Drow html inside using jsx. 1234567890!@#$%^&*****()_++{}:"<>?~!@#$%^&*()_{}:"][[];'l,.lllLLL&&&&;;;]
+        <div className={`list-item ${state}`}>
             <label 
-                htmlFor="checked" 
-                aria-label={'archiveTask-${id}'}
-                className="checkbox"
+              htmlFor="checked" 
+              aria-label={`archiveTask-${id}`}
+              className="checkbox"
             >
-                <input 
-                    type="checkbox"
-                    disabled={true}
-                    name="checked"
-                    id={'archiveTask-${id}'}
-                    checked={state === "TASK_ARCHIVED"}
-                    />
-                <span
-                    className="checkbox-custom"
-                    onClick={() => onArchiveTask(id)}
-                    />
+            <input 
+              type="checkbox"
+              disabled={true}
+              name="checked"
+              id={`archiveTask-${id}`}
+              checked={state === "TASK_ARCHIVED"}
+              />
+            <span
+              className="checkbox-custom"
+              onClick={() => onArchiveTask(id)}
+              />
             </label>
 
             <label htmlFor="title" aria-label={title} className="title">
@@ -36,10 +36,11 @@ export default function Task({ task : {id, title, state}, onArchiveTask, onPinTa
                 <button
                     className="pin-button"
                     onClick={() => onPinTask(id)}
-                    id="{'pinTask-${id}'}"
-                    key={'pinTask-${id}'}
+                    id={`pinTask-${id}`}
+                    aria-label={`pinTask-${id}`}
+                    key={`pinTask-${id}`}
                 >
-                    <span className={'icon-star'} /> {/*アイコン★*/}
+                    <span className={`icon-star`} /> {/*アイコン★*/}
                 </button>
             )}
         </div>
