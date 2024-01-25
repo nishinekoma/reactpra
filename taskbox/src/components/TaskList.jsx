@@ -3,11 +3,11 @@ import Task from './Task';
 import {useDispatch, useSelector} from 'react-redux';
 import { updateTaskState } from '../lib/store';
 
-export default function TaskList() {
+export default function TaskList() {//
     //we`re retrieving our state from the store
-    const tasks = useSelector((state) => {
+    const tasks = useSelector((state) => {//useSelectorフックを使うことで　Reduxストアから直接状態を取得できる。
         const tasksInOrder = [
-            ...state.taskbox.tasks.filter((t) => t.state === 'TASK_PINNED'),
+            ...state.taskbox.tasks.filter((t) => t.state === 'TASK_PINNED'),//...state.taskbox.tasks.filter((t = ...state.taskbox.tasks) => t.state === 'TASK_PINNED'),
             ...state.taskbox.tasks.filter((t) => t.state !== 'TASK_PINNED'),
         ];
         const filteredTasks = tasksInOrder.filter(
@@ -16,7 +16,7 @@ export default function TaskList() {
         return filteredTasks;
     });
     
-    const {state} = useSelector((state) => state.taskbox);
+    const {status} = useSelector((state) => state.taskbox);
 
     const dispatch = useDispatch();
 

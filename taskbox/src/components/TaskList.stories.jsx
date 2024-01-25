@@ -69,10 +69,10 @@ export const WithPinnedTasks = {
                 <Mockstore
                   taskboxState={{
                     ...MockedState,
-                    tasks: pinnedtasks ,
+                    tasks: pinnedtasks,
                   }}
                 >
-                    {story()}
+                  {story()}
                 </Mockstore>
             );
         },

@@ -41,8 +41,9 @@ const TasksSlice = createSlice({/**Slice は特定の状態とそれに関する
 //The actions contained in the slice are exported for usage in our components
 export const { updateTaskState } = TasksSlice.actions;
 
-/*
- * Our app`s store configuration goes here.
+/** 
+ * Our app`s store configuration goes here. Redux store is created by Redux method for configureStore 
+ * ReduxストアはconfigureStoreのReduxメソッドによって作成されます
  * Read more about Redux`s configureStore in the docs:
  * https://redux-toolkit.js.org/api/configureStore
  */

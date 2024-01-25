@@ -18,11 +18,32 @@ Redux Toolkit　：Reduxをより簡潔に使用できるツールキット
 React-Redux　　：Reactアプリケーションで状態管理を行うためのライブラリ
                  アプリケーション全体でデータを一元管理でき、コンポーネント間でのデータのやり取りがスムーズ
 
+
+
+ReactStorybook
+        what?
+        ・UI component development tools.
+        Major Features(主な特徴)
+        ・Helps you development and design UI compornent in an isolated environment outside of your app
+        ( アプリの外部の隔離された環境で UI コンポーネントを開発および設計するのに役立ちます)
+        ・There are two basic levels of organization components and their child stories.
+        (コンポーネントとその子ストーリーという 2 つの基本的な構成レベルがある。)
+
+Reactの機能
+React Hooksのフックとは
+        ・特徴
+        　　・クラスを使用せずにReact関数を使うことができる機能。
+        　　・クラスを使用して書いていたものを関数だけでしようすることができるようになったらしい。
+        ・メリット
+        　　・。例えば、関数コンポーネントにstateを持たせたり、ライフサイクルに応じた処理を実装したりできる。
+        ・使い方
+        　　ライブラリをインポート使う。　フック：useSelectorとかuseEffectとかの関数。
+                一覧URL：https://udemy.benesse.co.jp/development/react-hooks.html#:~:text=React%20Hooks%E3%81%A8%E3%81%AF%E3%80%81%E3%82%AF%E3%83%A9%E3%82%B9,%E9%96%8B%E7%99%BA%E3%81%AB%E5%BD%B9%E7%AB%8B%E3%81%A6%E3%81%BE%E3%81%97%E3%82%87%E3%81%86%E3%80%82
 用語
 仮想DOM：　・UIの仮想表現をメモリー内に保持して　実際のDOMと同視させるという
 　　　　　　　プログラミング概念　
 　　　　　　・このコンセプトはReactによって開拓 
-        　・必要な部分しか更新されてないため非常に高速に動作する
+        　　・必要な部分しか更新されてないため非常に高速に動作する
 　　　　　　　　　　　　　　　　　　　　　　　　　
 
 仮想ノード(vノード): 仮想ファイいるシステム何のオブジェクトへのアクセスを表します。
@@ -39,28 +60,90 @@ React-Redux　　：Reactアプリケーションで状態管理を行うため�
         　記録されているファイル
 モックする　機能を呼び出して模倣することを指す。
 
-programming syntax
- <span />　の　/>は　子要素　<span>これは子要素です</span>　のやつを持たないで自己終了する。
+Jsでの関数 = オブジェクトの一つである。
 
-  arrow functino アロー関数　Javaでいうラムダみたいなやつ
-　デフォルト
-　const add = functino(a,b) { return a + b;};
-  
-  アロー関数使用時
-  const add = (a,b) => a + b;
+HMR(Hot Module Replacement)JavaScriptのフレームワークであるWebpackやParcelなどで使用される機能の一つ。 
 
-オブジェクト分割代入について{}
-        例code
-        const myObject = {
-                key1: 'value1',
-                key2: 'value2',
-                key3: 'value3',
-                };
-        取り出す
-                const { key1, key3 } = myObject;
+/---*programming syntax for js and jsx*---/
+    ・<span />　の　/>は　子要素　<span>これは子要素です</span>　のやつを持たないで自己終了する。
 
-                console.log(key1); // 'value1'
-                console.log(key3); // 'value3'
+	・arrow functino アロー関数　Javaでいうラムダみたいなやつ
+		　デフォルト
+		　const add = function(a,b) { return a + b;};
+		
+		　・アロー関数使用時
+		　const add = (a,b) => a + b;
+
+	・オブジェクト分割代入について{}
+			例code
+			const myObject = {
+					key1: 'value1',
+					key2: 'value2',
+					key3: 'value3',
+					};
+			取り出す
+					const { key1, key3 } = myObject;
+
+					console.log(key1); // 'value1'
+					console.log(key3); // 'value3'
+
+	・コールバック関数について　参考リンク：　https://tcd-theme.com/2022/04/javascript-callback-function.html
+			コールバック関数 : ある関数を呼び出す際、その関数の引数に指定される別の関数のこと。
+			高階関数　：　コールバック関数を受け取ったり返したりする関数のことを高階関数という。
+
+			function 高階関数(コールバック関数) {
+					コールバック関数
+			}
+
+			例code1
+			//高階関数　→　funcBを引数に受け入れる
+			function funcA(text) {
+					text(); //funcB
+					console.log('メッセージを受け取りました。'); //funcAの処理
+			}
+
+			//コールバック関数　→　funcAの呼び出し時に引数に指定される。
+			function funcB() {
+					console.log('こんにちわ');
+			}
+
+			//funcAの呼び出し → 引数にfuncBを指定
+			funcA(funcB)
+
+			例code2
+			引数に直接関数を記述する。
+			function funcA(text) {
+					text();
+					console.log('メッセージを受け取りました。');
+			}
+			//funcAの呼び出し → 引数に関数式を定義。
+			funcA(function() {
+					console.log('こんにちは');
+			});
+			//こんにちは
+			//メッセージを受け取りました。
+
+			例code3 = 例code1 and 例code2　をアロー関数に改造。
+			const funcA = (text) => {
+					text();
+					console.log('メッセージを受け取りました。');
+			}
+			//funcAの呼び出し→引数にアロー関数を定義
+			funcA(() => {
+					console.log('こんにちは');
+			});
+
+			//こんにちは
+			//メッセージを受け取りました。
+			//解説
+			　まずfuncAを定義する。その時textという関数を受け取るのと、メッセージを受け取りました。と表示される。
+			　次にfuncAないにアロー関数をぶち込んでいる。
+			　この時  funcA(アロー関数)　アロー関数を処理してからtextという仮引数で代入される。
+			　その後funcA自体が動き、textという仮引数の関数が働き、その後console.log('メッセージを受け取りました')が実行される。
+	
+	・スプレッド構文 ...変数名
+	　const numbers = [1, 2, 3];
+	　console.log(...numbers);//result 1,2,3
 
 英語
 on 何かの表面の上を示す場合に使われる
@@ -86,6 +169,7 @@ specify(スペシフィ)※指定する、明確に述べる、特定する　�
 shape(シェープ)　形状　コア:物の外形
 Shaping()形成する。
 expects(エクスペクトッ)動詞:期待する、予期する 
+Unexpected(アンエクスペクティッド)予想外の、
 composition(コンポジション)構成、組み立てる
 unmet(アンメット)いまだ満たされていない
 accompanying(アカンパニィング)※付随する、同行する
@@ -108,6 +192,9 @@ retrieving(リトライビング)を取り戻す、回収する（している�
 dispatch(ディスパッチ)発送する、派遣する　ITでは同種の複数の対象から一つを呼び出したり、データの送信を意味する。
 day()曜日
 date()日付
+corresponding(コレスポンディング)　一致する、対応する、 ※　ほかの何かと一致する、または同等のものを指す。
+correspond(コレスポンド)　一致する、符合する、該当する
+combine(コンバイン)動詞：(...を)組み合わせる、合併させる、結びつける。結合して
 熟語
 under the hood 何かがどのように機能するかの背景を示すことを意味する
                 内部というイメージ
@@ -122,15 +209,15 @@ To + 動詞の原形　https://www.shane.co.jp/column/detail/id=45561#:~:text=%E
         ・ 形容詞的用法「～するための」
         ・副詞的用法「～するために」、「～して　　　　目的、原因や結果を表現
 
-ReactStorybook
-        what?
-        ・UI component development tools.
-        Major Features(主な特徴)
-        ・Helps you development and design UI compornent in an isolated environment outside of your app
-        ( アプリの外部の隔離された環境で UI コンポーネントを開発および設計するのに役立ちます)
-        ・There are two basic levels of organization components and their child stories.
-        (コンポーネントとその子ストーリーという 2 つの基本的な構成レベルがある。)
-
+as 
+	前置詞と接続詞の違い　見分け
+	前置詞：次に来るのが　名詞　や　-ing系などの句。
+		・as = ～として　～のように
+	接続詞：次に来るのが、　主語＋名詞
+		・as = ～ので　～のとき　～のように
+	
+	慣用句
+	as ~ as ... (...と同じくらい～)
 品詞
 副詞：修飾する　「動詞や形容詞や副詞」　のすぐ前に置くと間違いがありません。
 用語
