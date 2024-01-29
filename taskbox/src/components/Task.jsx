@@ -5,16 +5,16 @@ export default function Task({ task : {id, title, state}, onArchiveTask, onPinTa
     return (//jsxを利用し内部にhtmlを描く　Drow html inside using jsx. 1234567890!@#$%^&*****()_++{}:"<>?~!@#$%^&*()_{}:"][[];'l,.lllLLL&&&&;;;]
         <div className={`list-item ${state}`}>
             <label 
-              htmlFor="checked" 
+              htmlFor="checked" //ラベルをクリックしたときフォーカスが移るのでいる場所がわかりやすい。 "id要素と関連ずける。フォーカスする。"
               aria-label={`archiveTask-${id}`}
               className="checkbox"
             >
             <input 
-              type="checkbox"
-              disabled={true}
+              type="checkbox"//inputの型をチェックボックスにする。
+              disabled={true}//触ることができない？
               name="checked"
               id={`archiveTask-${id}`}
-              checked={state === "TASK_ARCHIVED"}
+              checked={state === "TASK_ARCHIVED"}//stateの値が"TASK....D"だった場合tureになり　チェックマークがつく。
               />
             <span
               className="checkbox-custom"
@@ -32,7 +32,7 @@ export default function Task({ task : {id, title, state}, onArchiveTask, onPinTa
                     />
             </label>
 
-            {state !== "TASK_ARCHIVED" && (
+            {state !== "TASK_ARCHIVED" && (//true && その後の要素出力。 
                 <button
                     className="pin-button"
                     onClick={() => onPinTask(id)}

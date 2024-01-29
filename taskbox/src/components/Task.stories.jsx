@@ -17,12 +17,12 @@ export const Default = {
         },
     },
 };
-//Pinned クレカなどの暗証番号などの意味。　個人識別番号
+//Pinned 固定。
 export const Pinned = {
     args: {
         task:{
             ...Default.args.task,
-            state: 'TASK_PINNED',
+            state: 'TASK_PINNED',//cssにもある★クラスに影響する。
         },
     },
 };

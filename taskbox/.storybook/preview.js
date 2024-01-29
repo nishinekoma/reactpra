@@ -1,4 +1,11 @@
 import '../src/index.css';
+
+// Registers the new addon 新しいアドオンを登録する。
+import { initialize,mswLoader } from 'msw-storybook-addon';
+
+//Initialize MSW
+initialize();
+
 //👇 Configures Storybook to log the actions( onArchiveTask and onPinTask ) in the UI.
 /** @type { import('@storybook/react').Preview } */
 const preview = {
@@ -11,6 +18,7 @@ const preview = {
       },
     },
   },
+  loaders: [mswLoader],
 };
 
 export default preview;

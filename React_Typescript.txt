@@ -62,8 +62,12 @@ React Hooksのフックとは
 
 Jsでの関数 = オブジェクトの一つである。
 
+Handling　（。。。に対して）　処理をすること。
 HMR(Hot Module Replacement)JavaScriptのフレームワークであるWebpackやParcelなどで使用される機能の一つ。 
 
+() 丸括弧　バーレン　
+{} 波括弧　ブレイス、カーリーブランケット
+[] ブランケット、角括弧
 /---*programming syntax for js and jsx*---/
     ・<span />　の　/>は　子要素　<span>これは子要素です</span>　のやつを持たないで自己終了する。
 
@@ -74,7 +78,10 @@ HMR(Hot Module Replacement)JavaScriptのフレームワークであるWebpackや
 		　・アロー関数使用時
 		　const add = (a,b) => a + b;
 
-	・オブジェクト分割代入について{}
+	・オブジェクト分割代入について{} 　デェスクトラクチャリング　Destructuring assignment
+		分割代入は、プロパティ名と同じ名前で変数を定義するときに、プロパティ名を2度書かないで済むのがひとつの利点です。
+		例　〇　const { error }  = useSelector((state) => state.taskbox);
+		　　✖　const { error }  = useSelector((state) => state.taskbox.error);
 			例code
 			const myObject = {
 					key1: 'value1',
@@ -145,16 +152,43 @@ HMR(Hot Module Replacement)JavaScriptのフレームワークであるWebpackや
 	　const numbers = [1, 2, 3];
 	　console.log(...numbers);//result 1,2,3
 
+	JavaScriptについて
+		・Jsはシングルスレッド。
+			・元々同期処理で、「UIスレッド」と呼ばれるメインスレッド上で処理を１つ１つ順番に実行していくことしかできないが
+			　JavaScriptでは、同時に複数の処理を行うことができない代わりに、時間のかかる処理が完了するまでの間、他の処理を進めていくことができる。
+			　これを非同期処理と言います。
+			非同期処理の対象になる例
+			・ネットワークリクエスト
+			・ファイルI/O
+			・データベースアクセス
+			・タイマーイベント
+		・非同期処理
+			・jsの非同期処理は
+				・コールバック　https://knowledge.sakura.ad.jp/24888/
+				|	・Node.jsの標準ライブラリでの採用されている一つ。　
+						処理が終わったら指定した関数が呼ばれる。
+				・Promise
+				・async/await
+				の三つがある。
+/---*programming syntax for typescript*---/
+	・拡張子 .ts
+	・変数宣言の型注釈
+		用法
+		　・変数宣言するときにその変数にどんな値が代入可能かを指定できる。　←　型注釈(type annotation; 型アノテーションという。)
+		　　注釈の意味：　あらゆる形態のdataに　タグやメタデータの情報をつけていくこと。
+		例code
+			const num : number = 123;
+
 英語
 on 何かの表面の上を示す場合に使われる
 complicated（コンプリケエド）複雑化な、
 ~hood（フッド）※接頭辞等 状態、性質、集団
     例　child hood 子供の状態　
 advanced(アェドバンシィド)形容詞：高度な
-ever(エバー)常に、ずっと、いつまでも、いつも
-available(アェバブォル)利用することができる。
+ever(エバー)副詞：常に、ずっと、いつまでも、いつも、コア：かつて
+available(アバェアブォル)利用することができる。、入手できる。
 details(データイルズ)詳細
-required(リクエリィド)形容詞：必須、必須の
+required(リクアイヤド)形容詞：必須、必須の
 new 真新しいというニュアンス
 recent(リーセント) 最近起こった出来事などでつかわれる新しい
 latest(レィテスト)最新　late(最近の)の最上級　最も最新な情報のnuance
@@ -168,13 +202,13 @@ placeholder何も入力されていない状態のテキスト入力欄に最初
 specify(スペシフィ)※指定する、明確に述べる、特定する　特定する
 shape(シェープ)　形状　コア:物の外形
 Shaping()形成する。
-expects(エクスペクトッ)動詞:期待する、予期する 
+expect(エクスペクトッ)動詞:期待する、予期する 
 Unexpected(アンエクスペクティッド)予想外の、
 composition(コンポジション)構成、組み立てる
 unmet(アンメット)いまだ満たされていない
 accompanying(アカンパニィング)※付随する、同行する
 Inherited(インヘリテェッド)動詞：受け継ぐ、継承の意味がある。　今回は継承された
-arbitrary(アァㇻビタァリィ)任意の、勝手な、　
+arbitrary(アァㇻバタァリィ)任意の、勝手な、　
 Row(ロウ)列
 empty(エンプティ)コア：中身が空の
 export(エクスポート)動詞：(...へ)輸出する、(外に)伝える
@@ -195,6 +229,20 @@ date()日付
 corresponding(コレスポンディング)　一致する、対応する、 ※　ほかの何かと一致する、または同等のものを指す。
 correspond(コレスポンド)　一致する、符合する、該当する
 combine(コンバイン)動詞：(...を)組み合わせる、合併させる、結びつける。結合して
+extract(エクストラクト)　抽出する、取り出す、抜く
+await(アウェイト) (...を)待つ、待ち構えている。
+reject(リジェクト)却下する、拒絶する、
+Represent(リプレゼント)意味する、意義がある、代表する、代理する。　※堅苦しい言い方。
+Representing(リプレゼンティング)表現している　
+eventual(イベンチャル)形容詞：結果としておきる、最後の、結局の、
+failure(フェアリアァー)失敗、不成功
+operation(オペレーション)操作
+Essentially(エッセンシャリィ)副詞基本的に、（本質的な感じで使う。　根はいい子の意味で基本的とか。）
+neste(ネスト)この中で
+nested(ネスティッド)入れ子になった。
+determine(デタァ‐ミン)動詞：決心する、決意する、判決する。
+disabled(ディザァブリィド)IT：無効にする
+assignable(アッサイナブル)形容詞：割り当て可能、指定される、譲渡されうる。
 熟語
 under the hood 何かがどのように機能するかの背景を示すことを意味する
                 内部というイメージ

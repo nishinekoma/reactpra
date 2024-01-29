@@ -17,7 +17,7 @@ export default function TaskList() {//
     });
     
     const {status} = useSelector((state) => state.taskbox);
-
+    //Redux ストアから関数への参照を返す。必要に応じてこれを使用してアクションをディスパッチできます。
     const dispatch = useDispatch();
 
     const pintask = (value) => {

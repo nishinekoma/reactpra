@@ -19,7 +19,6 @@ export const MockedState = {
     error: null,
 };
 
-
 //A super-simple mock of a redux store Reduxストアの状態を簡単に模倣したもの。
 const Mockstore = ({taskboxState, children }) => (
     <Provider
