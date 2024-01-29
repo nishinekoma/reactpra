@@ -243,6 +243,11 @@ nested(ネスティッド)入れ子になった。
 determine(デタァ‐ミン)動詞：決心する、決意する、判決する。
 disabled(ディザァブリィド)IT：無効にする
 assignable(アッサイナブル)形容詞：割り当て可能、指定される、譲渡されうる。
+following()以下の、次に続く、次の
+denied(ディナイド)動詞：　拒否された
+Permission(パーミッション)許可、承諾、許し
+
+
 熟語
 under the hood 何かがどのように機能するかの背景を示すことを意味する
                 内部というイメージ
@@ -266,6 +271,19 @@ as
 	
 	慣用句
 	as ~ as ... (...と同じくらい～)
+
+in について
+A in the B
+A　が　B　の中に存在していることを示す。
+
+時間的な期間を示す場合:
+"I will do my homework in the evening."（夕方に宿題をします。）
+
+場所を指定する場合:
+"I found the information in the documentation."（ドキュメント内で情報を見つけました。）
+
+方法や手段を指定する場合:
+"She fixed the issue in three simple steps."（彼女は3つの簡単な手順で問題を修正しました。）
 品詞
 副詞：修飾する　「動詞や形容詞や副詞」　のすぐ前に置くと間違いがありません。
 用語
